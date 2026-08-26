@@ -1,0 +1,6 @@
+@Stargazer.Server_HostAddress = http://localhost:5080
+
+GET {{Stargazer.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

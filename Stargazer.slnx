@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="stargazer.client/stargazer.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Stargazer.Server/Stargazer.Server.csproj" />
+</Solution>
