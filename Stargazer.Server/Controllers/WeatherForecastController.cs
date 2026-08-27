@@ -15,7 +15,7 @@ namespace Stargazer.Server.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            Nyarlathotep.DoIt();
+//            Nyarlathotep.DoIt();
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

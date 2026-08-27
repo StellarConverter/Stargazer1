@@ -15,7 +15,6 @@ namespace Stargazer.Server.Logic
             {
                 client.DefaultRequestHeaders.Add("User-Agent", "Stargazer");
                 //string htmlContent = await client.GetStringAsync(SimpleRepo.launchScheduleUrl);
-                //string htmlContent = File.ReadAllText("../Docs/Launch Schedule – Spaceflight Now.htm");
                 string htmlContent = File.ReadAllText("../Storage/exemplar.txt");
 
                 var doc = new HtmlDocument();

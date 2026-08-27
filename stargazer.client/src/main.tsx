@@ -2,17 +2,19 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import Home from './Home.tsx';
+import LandingPage from './LandingPage.tsx'
+import MainPage from './MainPage.tsx';
 import ErrorPage from './ErrorPage.tsx'
 import { BrowserRouter, createBrowserRouter, RouterProvider, Link, Routes, Route} from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <BrowserRouter>
-            <p>top level</p>
+            <p>Stargazer</p>
             <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/old" element={<App />} />
+                <Route path="/main" element={<MainPage />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
     </BrowserRouter>

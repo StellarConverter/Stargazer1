@@ -1,6 +1,20 @@
-function ErrorPage() {
-  return (
-    <p>This is the error page ...!</p>
+import { useNavigate } from "react-router-dom";
+
+function ErrorPage()
+{
+    const navigate = useNavigate();
+
+
+    const handleNavigate = () =>
+    {
+        navigate("/");
+    };
+
+    return (
+        <div>
+            <h1>Error Page ...!</h1>
+            <button onClick={handleNavigate}>GO HOME</button>
+      </div>
   );
 }
 

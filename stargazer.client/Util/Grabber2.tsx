@@ -1,4 +1,4 @@
-export async function Grabbit2<T>(url: string, commenadType: string = "GET", parmas: any = null): Promise<T>
+export async function GrabObject<T>(url: string, commenadType: string = "GET", parmas: any = null): Promise<T>
 {
     var options: any = {};
     if (commenadType != 'GET' || parmas != null)
@@ -23,6 +23,4 @@ export async function Grabbit2<T>(url: string, commenadType: string = "GET", par
         alert("response.OK was FALSE")
         return null as T;
     }
-
-    
 }
