@@ -4,4 +4,5 @@
     <Deploy />
   </Project>
   <Project Path="Stargazer.Server/Stargazer.Server.csproj" />
+  <Project Path="StargazerLogic/StargazerLogic.csproj" Id="5f7fa5ef-5dfa-4a97-83e5-bdf63e9d6f70" />
 </Solution>

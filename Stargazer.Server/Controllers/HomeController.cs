@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Stargazer.Server.Logic;
-using Stargazer.Server.Mules;
+using Stargazer.StargazerLogic;
+using Stargazer.StargazerLogic.Mules;
 
 namespace Stargazer.Server.Controllers
 {

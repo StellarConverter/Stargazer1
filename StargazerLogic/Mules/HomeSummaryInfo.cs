@@ -1,6 +1,6 @@
 ﻿using TypeGen.Core.TypeAnnotations;
 
-namespace Stargazer.Server.Mules
+namespace Stargazer.StargazerLogic.Mules
 {
     [ExportTsClass]
     public class HomeSummaryInfo

@@ -1,8 +1,8 @@
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using Namotion.Reflection;
-using Stargazer.Server.Logic;
-using Stargazer.Server.Mules;
+using Stargazer.StargazerLogic;
+using Stargazer.StargazerLogic.Mules;
 using System.Reflection;
 
 namespace Stargazer.Server.Controllers

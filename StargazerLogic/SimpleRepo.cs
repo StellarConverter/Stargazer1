@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
-using Stargazer.Server.Mules;
+using Stargazer.StargazerLogic.Mules;
 
-namespace Stargazer.Server.Logic
+namespace Stargazer.StargazerLogic
 {
     public static class SimpleRepo
     {

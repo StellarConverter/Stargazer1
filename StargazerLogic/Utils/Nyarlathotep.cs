@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using TypeGen.Core.Generator;
 
-namespace Stargazer.Server.Util
+namespace Stargazer.StargazerLogic.Util
 {
     /// <summary>
     /// This class causes TypeGen to generate the client-side TS files from the CS mule classes in this folder (assembly, really, but they're all in this folder)

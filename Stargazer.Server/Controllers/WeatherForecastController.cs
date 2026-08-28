@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Stargazer.Server.Util;
+using Stargazer.StargazerLogic.Util;
 
 namespace Stargazer.Server.Controllers
 {
