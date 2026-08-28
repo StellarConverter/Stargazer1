@@ -4,7 +4,7 @@
  */
 
 export class LaunchEvent {
-    launchDateString: string = "";
+    launchDate: string = "";
     launchSite: string = "";
     craftType: string = "";
     mission: string = "";

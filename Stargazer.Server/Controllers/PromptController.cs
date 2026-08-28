@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Stargazer.StargazerLogic;
+using Stargazer.StargazerLogic.LLM;
 using Stargazer.StargazerLogic.Mules;
-using Stargazer.StargazerLogic.Utils;
 
 namespace Stargazer.Server.Controllers
 {

@@ -43,7 +43,7 @@ namespace Stargazer.StargazerLogic
                                     var dateAndCraft = divText.Split(new string[] { "\n"}, StringSplitOptions.RemoveEmptyEntries);
                                     if (dateAndCraft.Length == 2)
                                     {
-                                        currentEvent.LaunchDateString = dateAndCraft[0];
+                                        currentEvent.LaunchDate = dateAndCraft[0];
                                         currentEvent.CraftType = dateAndCraft[1];
                                     }
                                     

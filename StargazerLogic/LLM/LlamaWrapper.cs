@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Stargazer.StargazerLogic.Utils
+namespace Stargazer.StargazerLogic.LLM
 {
     public static class LlamaWrapper
     {
@@ -29,7 +29,8 @@ namespace Stargazer.StargazerLogic.Utils
             var kernel = builder.Build();
 
             var chat = kernel.GetRequiredService<IChatCompletionService>();
-            //kernel.Plugins.AddFromType<MoodDetector>("Mood");
+            kernel.Plugins.AddFromType<LaunchInfosPlugIn>("Launches");
+            kernel.Plugins.AddFromType<GetDatePlugIn>("Date");
 
             var exSettings = new OllamaPromptExecutionSettings()
             {
