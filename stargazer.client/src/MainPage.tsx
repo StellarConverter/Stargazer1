@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { GrabObject } from '../Util/Grabber2.tsx'
 import { LaunchEvent } from '../Mules/launch-event.ts'
+import { PromptResponse } from '../Mules/prompt-response.ts'
+import { PromptRequest } from '../Mules/prompt-request.ts'
 
 function MainPage() 
 {
@@ -12,16 +14,27 @@ function MainPage()
     {
         setPrompt(e.target.value);
     };
+
+    const [primaryResponse, setPrimaryResponse] = useState("nothing yet...");
+
     function submitPrompt()
     {
-        alert(prompt);
-    }
+        setPrimaryResponse("Sending...");
+        var req = new PromptRequest();
+        req.prompt = prompt;
 
+        GrabObject<PromptResponse>('api/Prompt', "POST", req).then(rec =>
+        {
+            setPrimaryResponse(rec.content);
+        });
+    };
+
+    /*
     GrabObject<LaunchEvent[]>('api/stupid').then(resp =>
     {
         setMainList(resp);
     });
-
+    */
 
 
     return (
@@ -35,7 +48,7 @@ function MainPage()
                 </p>
             </div>
             <div id="responseBox">
-            <span id="responseContent">send it...</span>
+                <span id="responseContent">{ primaryResponse}</span>
             </div>
 
                 <hr></hr>

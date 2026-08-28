@@ -4,7 +4,8 @@ export async function GrabObject<T>(url: string, commenadType: string = "GET", p
     if (commenadType != 'GET' || parmas != null)
     {
         options.method = commenadType;
-        options.headers = { 'Content-Type': 'application/json; charset=utf-8' };
+        //options.headers = { 'Content-Type': 'application/json; charset=utf-8' };
+        options.headers = { 'Content-Type': 'application/json' };
 
         if (parmas) 
         {
@@ -12,7 +13,7 @@ export async function GrabObject<T>(url: string, commenadType: string = "GET", p
         }
     }
 
-    const fetchResponse = await fetch(url);
+    const fetchResponse = await fetch(url, options);
     if (fetchResponse.ok)
     {
         const payload = await fetchResponse.json();

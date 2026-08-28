@@ -14,6 +14,8 @@ namespace Stargazer.Server.Controllers
         [HttpGet(Name = "GetStupid")]
         public List<LaunchEvent> Get()
         {
+//                        StargazerLogic.Util.Nyarlathotep.DoIt();
+
             return SimpleRepo.AllLaunchEvents.ToList();
         }
     }

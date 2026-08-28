@@ -15,7 +15,8 @@ namespace Stargazer.StargazerLogic.Util
             //            var options = new GeneratorOptions { BaseOutputDirectory = @"C:\src\output" }; // create the options object
             var options = new GeneratorOptions { BaseOutputDirectory = @"..\stargazer.client\Mules" }; // create the options object
             var generator = new Generator(options);
-            var assembly = Assembly.GetCallingAssembly(); // get the assembly to generate files for
+            //            var assembly = Assembly.GetCallingAssembly(); // get the assembly to generate files for
+            var assembly = Assembly.GetAssembly(typeof(Nyarlathotep));
             generator.Generate(assembly); // generates the files
         }
     }
