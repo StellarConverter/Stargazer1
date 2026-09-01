@@ -29,7 +29,7 @@ function MainPage()
 
     return (
         <div className="full-width">
-            <div>Ask the LLM about upcoming launches.  In particular you can ask Stargazer to list what launches it knows about, and ask for details about particular lacunhes.  Assuming the LLM / tooling can figure it out.</div>
+            <div>Ask the LLM about upcoming space launches.  Typically there are about 10-12 upcoming launches - launch info is pulled live from the web</div>
             <div  className = "box-border">
             <div id="romptBox">
 

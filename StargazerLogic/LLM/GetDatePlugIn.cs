@@ -13,7 +13,7 @@ namespace Stargazer.StargazerLogic.LLM
         [Description("Gets the current date")]
         public async Task<string> GetDate()
         {
-            return DateTime.Now.ToString("yyyy-MM-dd");
+            return "The current date is " + DateTime.Now.ToString("yyyy-MM-dd") + ".";
         }
 
     }
