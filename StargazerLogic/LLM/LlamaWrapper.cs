@@ -38,7 +38,7 @@ namespace Stargazer.StargazerLogic.LLM
                 Temperature = 0.2f
             };
 
-            var history = new ChatHistory("You give short and precise results.");
+            var history = new ChatHistory("Your name is Stargazer.  You give short and precise results, unless told otherwise.  Your area of interest is real-world upcoming space launches.");
             //LOLCAT -- actually use chatHistory
             history.AddUserMessage(prompt);
 

@@ -1,0 +1,59 @@
+.box-border
+{
+    border: 2px solid black;
+    margin: 2px;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #808080;
+    border-radius: 1vh;
+}
+
+.full-width
+{
+    display: block;
+    width: 100%;
+}
+
+.moron
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2ex;
+}
+
+.left-align
+{
+    text-align: left
+}
+
+.right-align
+{
+    text-align: right
+}
+
+.mission-text
+{
+    color: darkblue;
+    text-align: left;
+    font-style: italic;
+}
+
+.prompt-box
+{
+    font-size: 12pt;
+    color: lawngreen;
+    background-color: black;
+}
+
+.stargazer-caption
+{
+    font-size: 3vh;
+    font-weight: bold;
+    color: black;
+
+}
+
+.prompt-reply-box
+{
+    background-color: silver;
+    color:black;
+    height: 20ex;
+}

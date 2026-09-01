@@ -2,11 +2,10 @@ import { GrabObject } from '../Util/Grabber2';
 import { useState } from 'react'
 import { HomeSummaryInfo } from '../Mules/home-summary-info';
 import { useNavigate } from 'react-router-dom';
+import './assets/site.css';
 
 export default function LandingPage()
 {
-    const [launchCount, setLaunchCount] = useState(-1);
-
     const navigate = useNavigate();
 
     const goToMainPage = () =>
@@ -14,20 +13,26 @@ export default function LandingPage()
         navigate("/main");
     };
 
+    const goToPeekPage = () =>
+    {
+        navigate("/peek");
+    };
 
+    /*
     setTimeout(() =>
     {
-        //GrabObject<HomeSummaryInfo>('api/home').then(resp => setLaunchCount(resp.launchCount));
         goToMainPage();
-    }, 1000);//LOLCAT -- replace timeout with proper retry error retry [as this fails the first time due to the server starting up]
+        //goToPeekPage();
+    }, 1000);
+    */
 
     return (
         <div>
-            <h1>Stargazer</h1>
-            <h2>{launchCount == -1 ? 'Loading..' : launchCount +' Launches'}</h2>
-            <h2>A simple React app which does some stuff</h2>
+            <h2>A simple AI chatbot</h2>
             <p></p>
-            <button onClick={ goToMainPage }>Go to Main...</button>
+            <button className="btn btn-primary" onClick={goToMainPage}>Ask the chatbot about upcoming Launches...</button>
+            <p></p>
+            <button className="btn btn-secondary" onClick={goToPeekPage}>Look at the raw dataset</button>
         </div>
     );
 }

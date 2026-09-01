@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 function ErrorPage()
 {
@@ -13,7 +14,7 @@ function ErrorPage()
     return (
         <div>
             <h1>Error Page ...!</h1>
-            <button onClick={handleNavigate}>GO HOME</button>
+            <button className="btn btn-primary" onClick={handleNavigate}>GO HOME</button>
       </div>
   );
 }
