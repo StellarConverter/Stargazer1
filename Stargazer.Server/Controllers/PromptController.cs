@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Stargazer.StargazerLogic;
 using Stargazer.StargazerLogic.LLM;
 using Stargazer.StargazerLogic.Mules;
+using System.Text;
 
 namespace Stargazer.Server.Controllers
 {
@@ -11,11 +12,19 @@ namespace Stargazer.Server.Controllers
     public class PromptController : ControllerBase
     {
         [HttpPost(Name = "DoPtompt")]
-        public PromptResponse Post([FromBody] PromptRequest req)
+        public async Task<PromptResponse> Post([FromBody] PromptRequest req)
         {
             var result = new PromptResponse();
             var history = new List<string>();//lolcat --- actaully do somehing with this
-            result.Content = LlamaWrapper.DoIt(req.Prompt, history).Result;
+
+            var sb = new StringBuilder();
+
+            await foreach(var token in LlamaWrapper.DoIt(req.Prompt, history))
+            {
+                sb.Append(token);
+            }
+
+            result.Content = sb.ToString();
             return result;
         }
     }

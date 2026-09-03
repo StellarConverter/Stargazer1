@@ -19,7 +19,7 @@ namespace Stargazer.StargazerLogic.LLM
 
         private static string modelName = "qwen2.5:7b";
 
-        public static async Task<string> DoIt(string prompt, List<string> chatHistory)
+        public static async IAsyncEnumerable<string> DoIt(string prompt, List<string> chatHistory)
         {
             var builder = Kernel.CreateBuilder();
             builder.AddOpenAIChatCompletion(
@@ -43,15 +43,14 @@ namespace Stargazer.StargazerLogic.LLM
             history.AddUserMessage(prompt);
 
             var sb = new StringBuilder();
-            await foreach (var data in chat.GetStreamingChatMessageContentsAsync(
+            await foreach (var chunk in chat.GetStreamingChatMessageContentsAsync(
                 history,
                 executionSettings: exSettings,
                 kernel: kernel))
             {
-                sb.Append(data.Content);
+                string? content = chunk == null ? null : chunk.Content;
+                yield return content == null ? string.Empty : content;
             }
-
-            return sb.ToString();
         }
     }
 }
