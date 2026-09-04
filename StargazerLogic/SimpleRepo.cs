@@ -15,7 +15,7 @@ namespace Stargazer.StargazerLogic
             {
                 client.DefaultRequestHeaders.Add("User-Agent", "Stargazer");
                 string htmlContent = await client.GetStringAsync(SimpleRepo.launchScheduleUrl);
-//                string htmlContent = File.ReadAllText("../Storage/exemplar.txt");
+                //                string htmlContent = File.ReadAllText("../Storage/exemplar.txt");
 
                 var doc = new HtmlDocument();
                 doc.LoadHtml(htmlContent);
@@ -30,23 +30,23 @@ namespace Stargazer.StargazerLogic
 
                     var currentEvent = new LaunchEvent();
 
-                    foreach (var divNode in mainContentDiv.ChildNodes.Where(rec=>rec.NodeType == HtmlNodeType.Element))
+                    foreach (var divNode in mainContentDiv.ChildNodes.Where(rec => rec.NodeType == HtmlNodeType.Element))
                     {
                         var classAttr = divNode.Attributes.Where(rec => string.Equals(rec.Name, "class", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-                        if (classAttr != null )
+                        if (classAttr != null)
                         {
                             var seekString = string.Empty;
                             var divText = divNode.InnerText;//LOLCAT -- sanitize this...
                             switch (classAttr.Value.ToLower())
                             {
                                 case "datename":
-                                    var dateAndCraft = divText.Split(new string[] { "\n"}, StringSplitOptions.RemoveEmptyEntries);
+                                    var dateAndCraft = divText.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
                                     if (dateAndCraft.Length == 2)
                                     {
                                         currentEvent.LaunchDate = dateAndCraft[0];
                                         currentEvent.CraftType = dateAndCraft[1];
                                     }
-                                    
+
                                     break;
                                 case "missiondata":
                                     seekString = "launch site:";
@@ -57,23 +57,20 @@ namespace Stargazer.StargazerLogic
                                     }
                                     break;
                                 case "missdescrip":
-                                    currentEvent.Mission = divText;
+                                    //     currentEvent.Mission = divText; //commenting this out for now, it apears to be overflowing the prompt window.   I need a better model....
                                     result.Add(currentEvent);
                                     currentEvent = new LaunchEvent();
                                     break;
                             }
-                            
+
                         }
-                        
+
                     }
                 }
                 else
                 {
-//LOLCAT write me                    result.Add(new LaunchEvent() { DisplayName = "Error gettign schedule cotennt.  Expected 1 main-content div, found " + scheduleHtmlChunks.Count.ToString() });
+                    result.Add(new LaunchEvent() { Mission = "Error getting schedule cotennt.  Expected 1 main-content div, found " + scheduleHtmlChunks.Count.ToString() });
                 }
-
-
-
             }
             return result;
         }

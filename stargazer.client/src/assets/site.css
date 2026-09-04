@@ -54,6 +54,16 @@
 .prompt-reply-box
 {
     background-color: silver;
-    color:black;
+    color: black;
     height: 20ex;
+    width: 100%;
+    padding-block: 1vh;
+    overflow-y: scroll;
+    text-align: left;
+}
+
+.prompt-fresh-term
+{
+color: red;
+background-color: yellow;
 }

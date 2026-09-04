@@ -12,20 +12,14 @@ namespace Stargazer.Server.Controllers
     public class PromptController : ControllerBase
     {
         [HttpPost(Name = "DoPtompt")]
-        public async Task<PromptResponse> Post([FromBody] PromptRequest req)
+        public async IAsyncEnumerable<string> Post([FromBody] PromptRequest req)
         {
             var result = new PromptResponse();
             var history = new List<string>();//lolcat --- actaully do somehing with this
-
-            var sb = new StringBuilder();
-
-            await foreach(var token in LlamaWrapper.DoIt(req.Prompt, history))
+            await foreach (var token in LlamaWrapper.DoIt(req.Prompt, history))
             {
-                sb.Append(token);
+                yield return (token == null) ? string.Empty : token;
             }
-
-            result.Content = sb.ToString();
-            return result;
         }
     }
 }
