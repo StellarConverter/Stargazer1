@@ -13,7 +13,7 @@ export default function Peek()
 
         useEffect(() =>
         {
-            GrabObject<LaunchEvent[]>('api/stupid').then(resp =>
+            GrabObject<LaunchEvent[]>('api/launches').then(resp =>
             {
                 setMainList(resp);
                 GrabObject<HomeSummaryInfo>('api/home').then(resp => setLaunchCount(resp.launchCount));
